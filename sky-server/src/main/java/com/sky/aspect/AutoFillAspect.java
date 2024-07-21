@@ -55,7 +55,7 @@ public class AutoFillAspect {
         Long currentId = BaseContext.getCurrentId();
 
         //根据当前不同的操作类型，为对应的属性反射来赋值
-        if(operationType == OperationType.UPDATE){
+        if(operationType == OperationType.INSERT){
             //为4个公共字段赋值
             try {
                 Method setCreateTime = entity.getClass().getDeclaredMethod("setCreateTime",LocalDateTime.class);
@@ -73,7 +73,7 @@ public class AutoFillAspect {
             } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
                 throw new RuntimeException(e);
             }
-        }else if(operationType == OperationType.INSERT){
+        }else if(operationType == OperationType.UPDATE){
             //为2个公共字段赋值
             try {
 
