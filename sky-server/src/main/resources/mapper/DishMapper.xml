@@ -24,6 +24,7 @@
         where id = #{id}
     </update>
 
+
     <delete id="deleteByIds">
         delete from dish where id in
         <foreach collection="ids" open="(" close=")" separator="," item="id">
